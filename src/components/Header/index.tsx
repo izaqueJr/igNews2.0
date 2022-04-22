@@ -8,7 +8,7 @@ const Header = () => {
             <div className={styles.headerContent}>
                 <img src="/images/logo.svg" alt="logo" />
 
-                <nav>
+                <nav> 
                     <a className={styles.active} href="">Home</a>
                     
                     <a href="">Posts</a>
