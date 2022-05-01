@@ -1,0 +1,21 @@
+{
+  "id": "b1ab2727-4445-4e22-a9f0-3b0becf34c4f",
+  "uid": "enim-sint-sint",
+  "type": "publication",
+  "data": {
+    "Title": [
+      {
+        "type": "heading1",
+        "text": "Enhance magnetic schemas",
+        "spans": []
+      }
+    ],
+    "post": [
+      {
+        "type": "paragraph",
+        "text": "Incididunt est nostrud labore aliqua magna.",
+        "spans": []
+      }
+    ]
+  }
+}

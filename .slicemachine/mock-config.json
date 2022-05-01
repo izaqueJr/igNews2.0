@@ -1,0 +1,12 @@
+{
+  "_cts": {
+    "publication": {
+      "Title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    }
+  }
+}

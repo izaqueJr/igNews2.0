@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import styles from './home.module.scss';
