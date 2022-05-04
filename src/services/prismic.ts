@@ -1,6 +1,6 @@
 import Prismic from '@prismicio/client'
 
-export function getPrimiscClient(req?: any) {
+export function getPrismicClient(req?: unknown) {
     const prismic = Prismic.client(
         process.env.PRISMIC__ENDPOINT,
         {

@@ -1,7 +1,8 @@
 import styles from './styles.module.scss'
 import Head from 'next/head';
+import Link from 'next/link'
 import { GetStaticProps } from 'next';
-import { getPrimiscClient } from './../../services/primisc';
+import { getPrismicClient } from './../../services/prismic';
 import  Prismic  from '@prismicio/client';
 
 
@@ -33,30 +34,32 @@ export default function Posts({ posts }: PostsProps) {
             <main className={ styles.container }>
                 <div  className={ styles.posts }>
                     
-                    { posts.map(post => (
+                    {   posts.map(post => (
                             // eslint-disable-next-line react/jsx-key
-                            <a href="#" key={post.slug}>
-                                <time>
-                                    { post.updatedAt }
-                                </time>
-        
-                                <strong>
-                                    { post.title }
-                                </strong>
-                                <div>
-                                    <div className={styles.excerpt}>
-                                        <p>
-                                            { post.excerpt }
-                                        </p>
-                                    </div>
+                            <Link href={`/posts/${post.slug}`}>
+                                <a key={post.slug}>
+                                    <time>
+                                        { post.updatedAt }
+                                    </time>
+            
+                                    <strong>
+                                        { post.title }
+                                    </strong>
+                                    <div>
+                                        <div className={styles.excerpt}>
+                                            <p>
+                                                { post.excerpt }
+                                            </p>
+                                        </div>
 
-                                    <div className={styles.hidden} > 
-                                        <div>
+                                        <div className={styles.hidden} > 
+                                            <div>
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </Link>
                         )) 
                     
                     }
@@ -69,7 +72,7 @@ export default function Posts({ posts }: PostsProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const prismic = getPrimiscClient()
+    const prismic = getPrismicClient()
 
     const response = await prismic.query([
         Prismic.predicates.at('document.type', 'publication'),
@@ -82,7 +85,7 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log("X:::::::::::::::::::::::::X", JSON.stringify(response, null, 2))
 
 
-    const posts = response.results.map(posts => {
+    const posts = response.results.map((posts:any) => {
         return {
             slug: posts.uid,
             title: posts.data.Title[0].text,
